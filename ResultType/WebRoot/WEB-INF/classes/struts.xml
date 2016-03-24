@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 防止中文乱码 -->
+	<constant name="struts.i18n.encoding" value="gb2312" />
+	<package name="r" extends="struts-default" namespace="/r">
+		<action name="r1">
+			<!-- 服务器跳转 -->
+			<result type="dispatcher">/r1.jsp</result>
+		</action>
+		<action name="r2">
+			<!-- 客户端跳转 -->
+			<result type="redirect">/r2.jsp</result>
+		</action>
+		<action name="r3">
+			<result type="chain">r1</result>
+		</action>
+		<action name="r4">
+			<result type="redirectAction">r2</result>
+		</action>
+		<action name="r5">
+			<result type="chain">
+				<param name="actionName">r3</param>
+				<param name="namespace">/re</param>
+			</result>
+		</action>
+		<action name="r6">
+			<result type="redirectAction">
+				<param name="actionName">r4</param>
+				<param name="namespace">/re</param>
+			</result>
+		</action>
+	</package>
+	<package name="re" extends="struts-default" namespace="/re">
+		<action name="r3">
+			<!-- 服务器跳转 -->
+			<result type="dispatcher">/r3.jsp</result>
+		</action>
+		<action name="r4">
+			<!-- 客户端跳转 -->
+			<result type="redirect">/r4.jsp</result>
+		</action>
+	</package>
+</struts>

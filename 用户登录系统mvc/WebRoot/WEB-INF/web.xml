@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>LoginCIServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>controller.LoginCIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StudentBeanCIServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>controller.StudentBeanCIServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>LoginCIServlet</servlet-name>
+    <url-pattern>/LoginCIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentBeanCIServlet</servlet-name>
+    <url-pattern>/StudentBeanCIServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

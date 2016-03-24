@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!--  
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/>
+-->
+    <!-- Add packages here -->
+	<constant name="struts.devMode" value="true" />
+	 <package name="default" namespace="/" extends="struts-default">
+        <action name="hello">
+            <result>
+                /Hello.jsp
+            </result>
+        </action>
+    </package>
+    <!--  
+    <constant name="struts.devMode" value="true" />
+    <package name="front" extends="struts-default" namespace="/front">
+        <action name="index">
+            <result>/Namespace.jsp</result>
+        </action>
+    </package>
+    -->
+    <!--  
+    <constant name="struts.devMode" value="true" />
+    <package name="front1" extends="struts-default" namespace="/">
+        <action name="index" class="action.IndexAction3">
+            <result name="success">/ActionIntroduction.jsp</result>
+        </action>
+    </package>
+    -->
+    <!--  
+     <constant name="struts.devMode" value="true" />
+    <package name="path" extends="struts-default" namespace="/path">
+        <action name="path" class="path.PathAction">
+            <result name="path">/path.jsp</result>
+        </action>
+    </package>
+    -->
+    <constant name="struts.devMode" value="true" />
+    <!-- struts2中默认不允许使用DMI,需要在配置文件中打开  -->
+     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <package name="user" extends="struts-default" namespace="/user">
+    
+        <action name="useradd" class="useradd.User" method="add">
+            <result>/user_add_success.jsp</result>
+        </action>
+        
+        <action name="user" class="useradd.User">
+            <result>/user_add_success.jsp</result>
+        </action>
+        
+    </package>
+</struts>

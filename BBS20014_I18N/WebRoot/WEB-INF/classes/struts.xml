@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+  
+	<package name="bbs2014_default" extends="struts-default">
+	 
+		<global-results>
+    		<result name="error">/error.jsp</result>
+    	</global-results>
+    
+		 <global-exception-mappings>
+    		<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+    	</global-exception-mappings>
+    	
+	</package>
+	<constant name="struts.custom.i18n.resources" value="bbs2014"></constant>
+	<package name="admin" namespace="/admin" extends="bbs2014_default">
+	<default-action-ref name="index"></default-action-ref>
+		<action name="index">
+			<result>/admin/index.html</result>
+		</action>
+		<action name="*_*" class="com.action.{1}Action" method="{2}">
+			<result >/admin/{1}_{2}.jsp</result>
+		    <result name="input">/admin/{1}_{2}.jsp</result> 
+		    <!--  
+		     <exception-mapping result="error" exception="java.lang.Exception" /> 	  
+       		 <result name="error">/error.jsp</result> 
+       	    -->
+		</action>
+		 <action name="lang" class="com.action.LangAction">
+       		<result>/admin/Login_input.jsp</result>
+       </action>
+	</package>
+	
+	<package name="Category" namespace="/" extends="struts-default">
+	<!-- 无法执行action里面的方法 -->
+	 <default-action-ref name="index"></default-action-ref> 
+		<action name="index" class="com.action.CategoryAction" method="index">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+ 
+</struts>
